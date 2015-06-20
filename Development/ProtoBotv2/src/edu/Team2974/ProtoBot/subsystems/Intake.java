@@ -1,0 +1,39 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.Team2974.ProtoBot.subsystems;
+
+import edu.Team2974.ProtoBot.RobotMap;
+import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ * @author Chris
+ */
+public class Intake extends Subsystem{
+ private Relay relayIntake;
+    private Relay.Value kOff;
+    private Relay.Value kForward;
+    private Relay.Value kReverse;
+    
+    public Intake()
+    {
+        relayIntake = new Relay(RobotMap.relayIntake);
+    }
+    
+    protected void initDefaultCommand() {
+    
+    }
+   
+     public void setIntakeInward(){
+         relayIntake.set(Relay.Value.kForward);
+     }
+     public void setIntakeOutward(){
+         relayIntake.set(Relay.Value.kReverse);
+     }
+     public void setIntakeOFF(){
+         relayIntake.set(Relay.Value.kOff);
+     }
+}
