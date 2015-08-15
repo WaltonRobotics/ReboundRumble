@@ -1,0 +1,38 @@
+package edu.team2974.StLouisPrep.commands;
+
+import edu.team2974.StLouisPrep.subsystems.Turret;
+import edu.team2974.StLouisPrep.subsystems.Intake;
+import edu.team2974.StLouisPrep.subsystems.TopShooterConveyor;
+import edu.team2974.StLouisPrep.subsystems.BridgeArm;
+import edu.team2974.StLouisPrep.subsystems.CenterConveyor;
+import edu.team2974.StLouisPrep.subsystems.DriveTrain;
+import edu.team2974.StLouisPrep.subsystems.Shooter;
+import edu.team2974.StLouisPrep.OI;
+import edu.wpi.first.wpilibj.command.Command;
+
+public abstract class CommandBase extends Command {
+
+    public static OI oi;
+    public static CenterConveyor conveyor = new CenterConveyor();
+    public static DriveTrain drive = new DriveTrain();
+    public static Shooter shot = new Shooter();
+    public static Turret turret = new Turret();
+    public static TopShooterConveyor feeder = new TopShooterConveyor();
+    public static Intake intake = new Intake();
+    public static BridgeArm bridgeArm = new BridgeArm();
+
+    public static void init() {
+        oi = new OI();
+        drive.setInvertedSide(false);
+
+        //SmartDashboard.putData(conveyor);
+    }
+
+    public CommandBase(String name) {
+        super(name);
+    }
+
+    public CommandBase() {
+        super();
+    }
+}
